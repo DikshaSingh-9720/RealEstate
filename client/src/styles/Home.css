@@ -1,0 +1,225 @@
+/* ===== Hero Section ===== */
+.hero-banner {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+  background: linear-gradient(
+      rgba(34, 34, 34, 0.45),
+      rgba(34, 34, 34, 0.45)
+    ),
+    url("https://evoinc.com.br/wp-content/uploads/2024/01/FA4AI5IHOBHYBD3EIOQ6PZADLM-scaled.jpg")
+      center/cover no-repeat;
+  color: #fff;
+  animation: heroZoom 15s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  0% { background-size: 100%; }
+  100% { background-size: 105%; }
+}
+
+.hero-content {
+  max-width: 700px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #e2e2e2;
+}
+
+/* Search Bar */
+.search-form {
+  display: flex;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-form input:focus {
+  box-shadow: 0 2px 10px rgba(76, 175, 80, 0.4);
+}
+
+.search-form button {
+  background: #4caf50;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.search-form button:hover {
+  background: #3b923f;
+  transform: scale(1.05);
+}
+
+/* ===== Featured Properties Section ===== */
+.featured-section {
+  background: #f4f4f4;
+  padding: 4rem 2rem;
+}
+
+.featured-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #2e3a24;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+/* Property Card Styling */
+.slider {
+  max-width: 80%;
+  margin: auto;
+}
+
+.property-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+}
+
+.property-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.property-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.property-card:hover .property-img {
+  transform: scale(1.05);
+}
+
+/* Overlay Info */
+.property-overlay {
+  padding: 1rem;
+  background: #fff;
+  text-align: center;
+}
+
+.property-overlay h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.property-overlay p {
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.property-overlay span {
+  display: inline-block;
+  font-weight: 700;
+  color: #4caf50;
+  font-size: 1.1rem;
+}
+
+/* Slick Carousel Styling Fix */
+.slick-slide {
+  padding: 0 15px;
+}
+
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  background: #4caf50;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background: #3b923f;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 20px;
+  color: #fff;
+}
+
+.slick-dots {
+  position: absolute;
+  top: 500px;
+  right: 10px;
+}
+
+
+
+/* Responsive Hero */
+@media (max-width: 768px) {
+ 
+  .hero-content{
+    width: 90%;
+    margin-top: -10rem;
+  }
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
+  .search-form {
+    flex-direction: column;
+    gap: 12px;
+    margin: auto;
+  }
+  .search-form input {
+    width: 70%;
+    border-radius: 8px;
+     margin: auto;
+  }
+
+  .search-form button{
+    width: 50%;
+    border-radius: 8px;
+     margin: auto;
+  }
+
+  .slick-dots{
+   top: -500px;
+  }
+}

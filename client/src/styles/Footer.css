@@ -1,0 +1,70 @@
+.footer {
+  background-color: #2d3e2d; /* Deep green base */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+    url("https://www.transparenttextures.com/patterns/wheat.png");
+  background-size: 120px;
+  color: #f4f4f4;
+  text-align: center;
+  padding: 2.2rem 1rem;
+  font-size: 0.95rem;
+  margin-top: auto;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Centered content with max width */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Paragraphs */
+.footer p {
+  margin: 0.3rem 0;
+  opacity: 0.85;
+  letter-spacing: 0.3px;
+}
+
+/* Links */
+.footer a {
+  color: #f4f4f4;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 0.4rem;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  position: relative;
+}
+
+/* Underline animation on hover */
+.footer a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #ffd700; /* Golden underline */
+  transition: width 0.3s ease;
+}
+
+.footer a:hover::after {
+  width: 100%;
+}
+
+.footer a:hover {
+  color: #ffd700;
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer {
+    font-size: 0.85rem;
+    padding: 1.5rem 1rem;
+  }
+  .footer-content p {
+    margin: 0.5rem 0;
+  }
+}
