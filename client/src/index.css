@@ -1,24 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom base styles for better accessibility and rural-friendly design */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background-color: #fafafa;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Optimize for low-bandwidth connections */
+  img {
+    max-width: 100%;
+    height: auto;
+    loading: lazy;
+  }
+
+  /* Better focus indicators for accessibility */
+  *:focus {
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+  }
+
+  /* Large touch targets for mobile */
+  button, 
+  input, 
+  select, 
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Custom component styles */
+@layer components {
+  /* Farmer-friendly button styles */
+  .btn-primary {
+    @apply bg-farm-green-600 hover:bg-farm-green-700 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 ease-in-out transform hover:scale-105 focus:scale-105 shadow-medium;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-farm-green-700 border-2 border-farm-green-600 font-medium py-3 px-6 rounded-xl transition-all duration-200 ease-in-out transform hover:scale-105 focus:scale-105 shadow-soft;
+  }
+
+  .btn-outline {
+    @apply bg-transparent hover:bg-farm-green-50 text-farm-green-700 border border-farm-green-300 font-medium py-2 px-4 rounded-lg transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 ease-in-out shadow-medium;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-2xl shadow-soft border border-gray-100 overflow-hidden transition-all duration-200 hover:shadow-medium;
+  }
+
+  .card-hover {
+    @apply transform hover:scale-105 hover:shadow-strong transition-all duration-300;
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply w-full px-4 py-3 text-base border border-gray-300 rounded-xl focus:ring-2 focus:ring-farm-green-500 focus:border-transparent transition-all duration-200 bg-white;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  .form-error {
+    @apply text-red-600 text-sm mt-1;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply text-gray-700 hover:text-farm-green-600 font-medium transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-farm-green-50;
+  }
+
+  .nav-link-active {
+    @apply text-farm-green-700 bg-farm-green-100 font-semibold;
+  }
+
+  /* Search and filter styles */
+  .search-container {
+    @apply bg-white rounded-2xl shadow-medium border border-gray-200 p-6;
+  }
+
+  .filter-chip {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-farm-green-100 text-farm-green-800 border border-farm-green-200;
+  }
+
+  .filter-chip-active {
+    @apply bg-farm-green-600 text-white border-farm-green-600;
+  }
+
+  /* Status badges */
+  .status-badge-approved {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800;
+  }
+
+  .status-badge-pending {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800;
+  }
+
+  .status-badge-rejected {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800;
+  }
+
+  /* Loading states */
+  .loading-spinner {
+    @apply animate-spin rounded-full h-8 w-8 border-b-2 border-farm-green-600;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  /* Map container */
+  .map-container {
+    @apply rounded-2xl overflow-hidden shadow-medium border border-gray-200;
+    height: 400px;
+  }
+
+  /* Mobile-optimized styles */
+  .mobile-menu {
+    @apply fixed inset-0 z-50 bg-white shadow-strong;
+  }
+
+  .mobile-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+  }
 }
 
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+/* Utility classes */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  }
+
+  .bg-gradient-secondary {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  /* Responsive text utilities */
+  .text-responsive {
+    @apply text-sm md:text-base lg:text-lg;
+  }
+
+  .text-responsive-lg {
+    @apply text-base md:text-lg lg:text-xl;
+  }
+
+  /* Container utilities */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    @apply border-2 border-black;
+  }
+  
+  .card {
+    @apply border-2 border-gray-400;
+  }
 }
